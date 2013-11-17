@@ -1,0 +1,211 @@
+---
+title       : Unemployment
+subtitle    : Hartford regional data and indicators
+author      : Scott Gaul
+job         : Community Indicators Project
+framework   : minimal        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+ext_widgets : {rCharts: ["libraries/nvd3"]} 
+mode        : selfcontained # {standalone, draft}
+---
+
+## Unemployment indicators
+
+This section covers indicators related to unemployment and the labor force in the Hartford area. 
+
+## Data and limitations
+
+Data on unemployment comes from DoL and ACS. 
+
+## What do we already know?
+
+Unemployment rates are the single most commonly-used indicator in the reports we reviewed; below are references for some. 
+
+### Local
+
+* [Health Equity Index](http://www.cadh.org/health-equity/health-equity-index.html) 
+* [MetroHartford Alliance's Regional Economic Scorecard](http://www.metrohartford.com/economic-development/regional-data) 
+* [Opportunities Hartford](http://www.cahs.org/programs-opportunitieshartford.asp) 
+* [Pioneer Valley State of the People](http://pvpc.org/resources/datastats/state-of-people/stateofthepeople2013.pdf) 
+* [CT Voices for Children](http://www.ctvoices.org/) 
+
+### Other relevant efforts
+
+* [Boston Indicators Project](http://www.bostonindicators.org/) 
+* [The Child Well-Being Index](http://fcd-us.org/our-work/child-well-being-index-cwi) * [Chicago Department of Public Health](https://data.cityofchicago.org/Health-Human-Services/hardship-index/792q-4jtu) 
+* [The Rhode Island Community Foundation](http://www.rifoundation.org/CommunityLeadership/CommunityDashboard/tabid/1157/Default.aspx) 
+* [The American Human Development Index (HDI)](http://www.measureofamerica.org/human-development/) 
+* [What Matters to Metros](http://www.futurefundneo.org/whatmatters) 
+
+## Sample results
+
+The sample results are for all towns in Hartford and Tolland Counties since it is easier to extract ACS data that way. 
+
+Unemployment rates from the ACS (2007 - 2011 5-year estimates)
+
+```{r echo = FALSE,warning = FALSE,message = FALSE, fig.width = 10, comment = NA, tidy = F}
+library(ggplot2)
+library(acs)
+library(maps)
+library(maptools)
+key = "ba67d3a427e1f785987b9c8bc59341bf7c8a7cc1"
+api.key.install(key)
+#hartford.towns = geo.make(state = "CT", county = c("Hartford","Tolland"), county.subdivision = "*", check = T)
+B23025 = acs.fetch(geography = hartford.towns, table.number = "B23025", col.names = "pretty")
+
+employment.estimate = divide.acs(numerator=B23025[,5],denominator=B23025[,2],
+                           method = 'proportion')
+
+participation.estimate = divide.acs(numerator=B23025[,7],denominator=B23025[,1],
+                           method = 'proportion')
+
+employment = data.frame(town=geography(B23025)[,1],
+                        employment=as.numeric(estimate(employment.estimate)),
+                        se.employment=standard.error(employment.estimate), 
+                        participation=as.numeric(estimate(participation.estimate)),
+                        se.participation=standard.error(participation.estimate))
+
+names(employment) <- c("town","employment","se.employment",
+                       "participation","se.participation")
+
+employment$town= gsub(" town, Tolland County, Connecticut", "", employment$town)
+employment$town= gsub(" town, Hartford County, Connecticut", "", employment$town)
+
+#Merge with data
+library(classInt)
+jenks <- classIntervals(employment$employment, n=4, style="fisher")
+choropleth=merge(CTTowns, employment, by.x = "id", by.y="town")
+choropleth=choropleth[order(choropleth$order), ]
+choropleth$employment=cut(choropleth$employment, breaks=jenks$brks, 
+                      include.lowest=T, dig.lab = T)
+#Make the map
+ggplot(data = choropleth, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = employment)) + 
+  scale_x_continuous(breaks = NULL) +
+  scale_y_continuous(breaks = NULL) +
+  labs(x = NULL, y = NULL) + 
+  coord_equal() +
+  geom_polygon(data = CTTowns, colour = "grey", alpha = 0.5, fill = NA) +
+  scale_fill_brewer(palette = "Purples", name = "Employment\nstatus") +
+  theme_minimal()
+```
+
+Margins of error for the same.
+
+```{r echo = FALSE, warning = FALSE, fig.height = 7, message = FALSE}
+employment$town <- reorder(employment$town, employment$employment)
+library(scales)
+ggplot(data = employment) + 
+  geom_point(aes(x = employment, y = town)) + 
+  geom_segment(aes(xend = employment - se.employment, 
+                   x = employment + se.employment, 
+                   y = town, yend = town), colour = "grey") + 
+  labs(x = 'Unemployment rates', y = NULL) + 
+  scale_x_continuous(labels = percent) + 
+  theme_minimal()
+```
+
+Labor force participation rates
+
+```{r echo = FALSE,warning = FALSE,message = FALSE, fig.width = 10, comment = NA, tidy = F}
+
+#Merge with data
+jenks <- classIntervals(employment$participation, n=4, style="fisher")
+choropleth=merge(CTTowns, employment, by.x = "id", by.y="town")
+choropleth=choropleth[order(choropleth$order), ]
+choropleth$participation=cut(choropleth$participation, breaks=jenks$brks, 
+                      include.lowest=T, dig.lab = T)
+#Make the map
+ggplot(data = choropleth, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = participation)) + 
+  scale_x_continuous(breaks = NULL) +
+  scale_y_continuous(breaks = NULL) +
+  labs(x = NULL, y = NULL) + 
+  coord_equal() +
+  geom_polygon(data = CTTowns, colour = "grey", alpha = 0.5, fill = NA) +
+  scale_fill_brewer(palette = "Purples", name = "Labor force\nparticipation") +
+  theme_minimal()
+```
+
+Margins of error for labor force participation
+Why are Somers, Mansfield and Suffield so high? 
+
+```{r echo = FALSE, warning = FALSE, fig.height = 7, message = FALSE}
+employment$town <- reorder(employment$town, employment$participation)
+ggplot(data = employment) + 
+  geom_point(aes(x = participation, y = town)) + 
+  geom_segment(aes(xend = participation - se.participation, 
+                   x = participation + se.participation, 
+                   y = town, yend = town), colour = "grey") + 
+  labs(x = 'Not in labor force', y = NULL) + 
+  scale_x_continuous(labels = percent) + 
+  theme_minimal()
+```
+
+Unemployment by neighborhood 
+
+```{r echo = FALSE,warning = FALSE,message = FALSE,fig.width = 10, comment = NA, tidy = F}
+#hartford.tracts = geo.make(state = "CT", county = c("Hartford","Tolland"), tract = "*", check = T)
+B23025 = acs.fetch(geography = hartford.tracts, table.number = "B23025", col.names = "pretty")
+
+employment.estimate = divide.acs(numerator=B23025[,5],denominator=B23025[,2])
+
+participation.estimate = divide.acs(numerator=B23025[,7],denominator=B23025[,1])
+
+employment.tract = data.frame(tract=geography(B23025)[,1],
+                        employment=as.numeric(estimate(employment.estimate)),
+                        se.employment=standard.error(employment.estimate), 
+                        participation=as.numeric(estimate(participation.estimate)),
+                        se.participation=standard.error(participation.estimate))
+
+names(employment.tract) <- c("tract","employment","se.employment",
+                       "participation","se.participation")
+
+employment.tract$tract= gsub("Census Tract ", "", employment.tract$tract)
+employment.tract$tract= gsub(", Tolland County, Connecticut", "", employment.tract$tract)
+employment.tract$tract= gsub(", Hartford County, Connecticut", "", employment.tract$tract)
+#Merge with data
+jenks <- classIntervals(employment.tract$employment, n=4, style="fisher")
+choropleth=merge(CTTracts, employment.tract, by.x = "id", by.y="tract")
+choropleth=choropleth[order(choropleth$order), ]
+choropleth$employment=cut(choropleth$employment, breaks=jenks$brks, 
+                      include.lowest=T, dig.lab = T)
+#Make the map
+ggplot(data = choropleth, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = employment)) + 
+  scale_x_continuous(breaks = NULL) +
+  scale_y_continuous(breaks = NULL) +
+  labs(x = NULL, y = NULL) + 
+  coord_equal() +
+  geom_polygon(data = CTTowns, colour = "grey", alpha = 0.5, fill = NA) +
+  scale_fill_brewer(palette = "Purples", name = "Unemployment\nrate") +
+  theme_minimal()
+```
+
+Labor force participation by neighborhood
+
+```{r echo = FALSE,warning = FALSE,message = FALSE,fig.width = 10, comment = NA, tidy = F}
+#hartford.tracts = geo.make(state = "CT", county = c("Hartford","Tolland"), tract = "*", check = T)
+#Merge with data
+jenks <- classIntervals(employment.tract$participation, n=4, style="fisher")
+choropleth=merge(CTTracts, employment.tract, by.x = "id", by.y="tract")
+choropleth=choropleth[order(choropleth$order), ]
+choropleth$participation=cut(choropleth$participation, breaks=jenks$brks, 
+                      include.lowest=T, dig.lab = T)
+#Make the map
+ggplot(data = choropleth, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = participation)) + 
+  scale_x_continuous(breaks = NULL) +
+  scale_y_continuous(breaks = NULL) +
+  labs(x = NULL, y = NULL) + 
+  coord_equal() +
+  geom_polygon(data = CTTowns, colour = "grey", alpha = 0.5, fill = NA) +
+  scale_fill_brewer(palette = "Purples", name = "Not in\nlabor force") +
+  theme_minimal()
+```
+
+Then get DoL data
+
+Look at table S2301 for data on labor force participation - old and young
+
