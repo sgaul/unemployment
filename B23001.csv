@@ -1,0 +1,145 @@
+Stat,Gender,Age,Labor force,Military,Employment status,GEO.display-label,Bridgeport-Stamford-Norwalk Metro,Hartford-West Hartford-East Hartford Metro,New Haven-Milford Metro
+Estimate, Male,16 to 19 years,In labor force,In Armed Forces,,HD01_VD05,21,53,50
+Margin of Error, Male,16 to 19 years,In labor force,In Armed Forces,,HD02_VD05,24,61,72
+Estimate, Male,16 to 19 years,In labor force,Civilian,Employed,HD01_VD07,6431,11947,7368
+Margin of Error, Male,16 to 19 years,In labor force,Civilian,Employed,HD02_VD07,448,597,403
+Estimate, Male,16 to 19 years,In labor force,Civilian,Unemployed,HD01_VD08,3029,3967,3161
+Margin of Error, Male,16 to 19 years,In labor force,Civilian,Unemployed,HD02_VD08,364,490,433
+Estimate, Male,20 and 21 years,In labor force,In Armed Forces,,HD01_VD12,0,29,1
+Margin of Error, Male,20 and 21 years,In labor force,In Armed Forces,,HD02_VD12,92,35,2
+Estimate, Male,20 and 21 years,In labor force,Civilian,Employed,HD01_VD14,6030,10972,6938
+Margin of Error, Male,20 and 21 years,In labor force,Civilian,Employed,HD02_VD14,593,734,536
+Estimate, Male,20 and 21 years,In labor force,Civilian,Unemployed,HD01_VD15,1536,1900,1630
+Margin of Error, Male,20 and 21 years,In labor force,Civilian,Unemployed,HD02_VD15,300,324,271
+Estimate, Male,22 to 24 years,In labor force,In Armed Forces,,HD01_VD19,11,60,61
+Margin of Error, Male,22 to 24 years,In labor force,In Armed Forces,,HD02_VD19,19,47,49
+Estimate, Male,22 to 24 years,In labor force,Civilian,Employed,HD01_VD21,10102,15953,10735
+Margin of Error, Male,22 to 24 years,In labor force,Civilian,Employed,HD02_VD21,637,798,607
+Estimate, Male,22 to 24 years,In labor force,Civilian,Unemployed,HD01_VD22,1938,2534,2380
+Margin of Error, Male,22 to 24 years,In labor force,Civilian,Unemployed,HD02_VD22,378,311,371
+Estimate, Male,25 to 29 years,In labor force,In Armed Forces,,HD01_VD26,4,165,160
+Margin of Error, Male,25 to 29 years,In labor force,In Armed Forces,,HD02_VD26,12,85,102
+Estimate, Male,25 to 29 years,In labor force,Civilian,Employed,HD01_VD28,20959,27681,21058
+Margin of Error, Male,25 to 29 years,In labor force,Civilian,Employed,HD02_VD28,513,659,529
+Estimate, Male,25 to 29 years,In labor force,Civilian,Unemployed,HD01_VD29,2357,3486,2598
+Margin of Error, Male,25 to 29 years,In labor force,Civilian,Unemployed,HD02_VD29,434,385,340
+Estimate, Male,30 to 34 years,In labor force,In Armed Forces,,HD01_VD33,48,179,36
+Margin of Error, Male,30 to 34 years,In labor force,In Armed Forces,,HD02_VD33,70,116,44
+Estimate, Male,30 to 34 years,In labor force,Civilian,Employed,HD01_VD35,23052,27777,20872
+Margin of Error, Male,30 to 34 years,In labor force,Civilian,Employed,HD02_VD35,425,630,491
+Estimate, Male,30 to 34 years,In labor force,Civilian,Unemployed,HD01_VD36,1567,2408,2030
+Margin of Error, Male,30 to 34 years,In labor force,Civilian,Unemployed,HD02_VD36,271,330,377
+Estimate, Male,35 to 44 years,In labor force,In Armed Forces,,HD01_VD40,55,211,87
+Margin of Error, Male,35 to 44 years,In labor force,In Armed Forces,,HD02_VD40,65,103,55
+Estimate, Male,35 to 44 years,In labor force,Civilian,Employed,HD01_VD42,57544,68585,48336
+Margin of Error, Male,35 to 44 years,In labor force,Civilian,Employed,HD02_VD42,637,747,580
+Estimate, Male,35 to 44 years,In labor force,Civilian,Unemployed,HD01_VD43,3486,4615,4089
+Margin of Error, Male,35 to 44 years,In labor force,Civilian,Unemployed,HD02_VD43,400,504,421
+Estimate, Male,45 to 54 years,In labor force,In Armed Forces,,HD01_VD47,23,106,13
+Margin of Error, Male,45 to 54 years,In labor force,In Armed Forces,,HD02_VD47,23,95,23
+Estimate, Male,45 to 54 years,In labor force,Civilian,Employed,HD01_VD49,60835,78262,52730
+Margin of Error, Male,45 to 54 years,In labor force,Civilian,Employed,HD02_VD49,521,751,615
+Estimate, Male,45 to 54 years,In labor force,Civilian,Unemployed,HD01_VD50,4355,5012,4128
+Margin of Error, Male,45 to 54 years,In labor force,Civilian,Unemployed,HD02_VD50,423,449,427
+Estimate, Male,55 to 59 years,In labor force,In Armed Forces,,HD01_VD54,0,11,0
+Margin of Error, Male,55 to 59 years,In labor force,In Armed Forces,,HD02_VD54,92,17,92
+Estimate, Male,55 to 59 years,In labor force,Civilian,Employed,HD01_VD56,21947,30184,19597
+Margin of Error, Male,55 to 59 years,In labor force,Civilian,Employed,HD02_VD56,659,879,657
+Estimate, Male,55 to 59 years,In labor force,Civilian,Unemployed,HD01_VD57,1507,2289,1530
+Margin of Error, Male,55 to 59 years,In labor force,Civilian,Unemployed,HD02_VD57,255,352,294
+Estimate, Male,60 and 61 years,In labor force,In Armed Forces,,HD01_VD61,0,0,0
+Margin of Error, Male,60 and 61 years,In labor force,In Armed Forces,,HD02_VD61,92,92,92
+Estimate, Male,60 and 61 years,In labor force,Civilian,Employed,HD01_VD63,7303,9828,6833
+Margin of Error, Male,60 and 61 years,In labor force,Civilian,Employed,HD02_VD63,524,564,544
+Estimate, Male,60 and 61 years,In labor force,Civilian,Unemployed,HD01_VD64,451,673,553
+Margin of Error, Male,60 and 61 years,In labor force,Civilian,Unemployed,HD02_VD64,117,146,164
+Estimate, Male,62 to 64 years,In labor force,In Armed Forces,,HD01_VD68,0,0,0
+Margin of Error, Male,62 to 64 years,In labor force,In Armed Forces,,HD02_VD68,92,92,92
+Estimate, Male,62 to 64 years,In labor force,Civilian,Employed,HD01_VD70,8166,11196,8013
+Margin of Error, Male,62 to 64 years,In labor force,Civilian,Employed,HD02_VD70,468,542,488
+Estimate, Male,62 to 64 years,In labor force,Civilian,Unemployed,HD01_VD71,659,799,622
+Margin of Error, Male,62 to 64 years,In labor force,Civilian,Unemployed,HD02_VD71,164,176,153
+Estimate, Male,65 to 69 years,In labor force,Civilian,Employed,HD01_VD76,7682,9609,6084
+Margin of Error, Male,65 to 69 years,In labor force,Civilian,Employed,HD02_VD76,388,553,454
+Estimate, Male,65 to 69 years,In labor force,Civilian,Unemployed,HD01_VD77,860,819,477
+Margin of Error, Male,65 to 69 years,In labor force,Civilian,Unemployed,HD02_VD77,212,173,129
+Estimate, Male,70 to 74 years,In labor force,Civilian,Employed,HD01_VD82,3107,3701,2818
+Margin of Error, Male,70 to 74 years,In labor force,Civilian,Employed,HD02_VD82,305,318,308
+Estimate, Male,70 to 74 years,In labor force,Civilian,Unemployed,HD01_VD83,307,236,207
+Margin of Error, Male,70 to 74 years,In labor force,Civilian,Unemployed,HD02_VD83,90,82,84
+Estimate, Male,75 years and over,In labor force,Civilian,Employed,HD01_VD88,2998,2949,2030
+Margin of Error, Male,75 years and over,In labor force,Civilian,Employed,HD02_VD88,278,296,263
+Estimate, Male,75 years and over,In labor force,Civilian,Unemployed,HD01_VD89,154,185,170
+Margin of Error, Male,75 years and over,In labor force,Civilian,Unemployed,HD02_VD89,68,80,67
+Estimate, Female,16 to 19 years,In labor force,In Armed Forces,,HD01_VD94,0,0,0
+Margin of Error, Female,16 to 19 years,In labor force,In Armed Forces,,HD02_VD94,92,92,92
+Estimate, Female,16 to 19 years,In labor force,Civilian,Employed,HD01_VD96,8016,12871,9415
+Margin of Error, Female,16 to 19 years,In labor force,Civilian,Employed,HD02_VD96,479,676,503
+Estimate, Female,16 to 19 years,In labor force,Civilian,Unemployed,HD01_VD97,1926,3265,3066
+Margin of Error, Female,16 to 19 years,In labor force,Civilian,Unemployed,HD02_VD97,334,366,410
+Estimate, Female,20 and 21 years,In labor force,In Armed Forces,,HD01_VD101,0,0,0
+Margin of Error, Female,20 and 21 years,In labor force,In Armed Forces,,HD02_VD101,92,92,92
+Estimate, Female,20 and 21 years,In labor force,Civilian,Employed,HD01_VD103,5537,10973,7414
+Margin of Error, Female,20 and 21 years,In labor force,Civilian,Employed,HD02_VD103,499,667,661
+Estimate, Female,20 and 21 years,In labor force,Civilian,Unemployed,HD01_VD104,1038,2091,1131
+Margin of Error, Female,20 and 21 years,In labor force,Civilian,Unemployed,HD02_VD104,218,324,263
+Estimate, Female,22 to 24 years,In labor force,In Armed Forces,,HD01_VD108,0,7,0
+Margin of Error, Female,22 to 24 years,In labor force,In Armed Forces,,HD02_VD108,92,11,92
+Estimate, Female,22 to 24 years,In labor force,Civilian,Employed,HD01_VD110,10515,14411,11876
+Margin of Error, Female,22 to 24 years,In labor force,Civilian,Employed,HD02_VD110,573,715,733
+Estimate, Female,22 to 24 years,In labor force,Civilian,Unemployed,HD01_VD111,1356,2171,1668
+Margin of Error, Female,22 to 24 years,In labor force,Civilian,Unemployed,HD02_VD111,254,350,289
+Estimate, Female,25 to 29 years,In labor force,In Armed Forces,,HD01_VD115,0,18,8
+Margin of Error, Female,25 to 29 years,In labor force,In Armed Forces,,HD02_VD115,92,21,12
+Estimate, Female,25 to 29 years,In labor force,Civilian,Employed,HD01_VD117,18220,27755,21173
+Margin of Error, Female,25 to 29 years,In labor force,Civilian,Employed,HD02_VD117,558,604,529
+Estimate, Female,25 to 29 years,In labor force,Civilian,Unemployed,HD01_VD118,1798,2957,2169
+Margin of Error, Female,25 to 29 years,In labor force,Civilian,Unemployed,HD02_VD118,336,510,379
+Estimate, Female,30 to 34 years,In labor force,In Armed Forces,,HD01_VD122,0,17,0
+Margin of Error, Female,30 to 34 years,In labor force,In Armed Forces,,HD02_VD122,92,27,92
+Estimate, Female,30 to 34 years,In labor force,Civilian,Employed,HD01_VD124,18865,26255,19912
+Margin of Error, Female,30 to 34 years,In labor force,Civilian,Employed,HD02_VD124,582,563,562
+Estimate, Female,30 to 34 years,In labor force,Civilian,Unemployed,HD01_VD125,1695,2534,1536
+Margin of Error, Female,30 to 34 years,In labor force,Civilian,Unemployed,HD02_VD125,293,299,275
+Estimate, Female,35 to 44 years,In labor force,In Armed Forces,,HD01_VD129,4,34,0
+Margin of Error, Female,35 to 44 years,In labor force,In Armed Forces,,HD02_VD129,5,32,92
+Estimate, Female,35 to 44 years,In labor force,Civilian,Employed,HD01_VD131,45780,64885,45494
+Margin of Error, Female,35 to 44 years,In labor force,Civilian,Employed,HD02_VD131,790,708,749
+Estimate, Female,35 to 44 years,In labor force,Civilian,Unemployed,HD01_VD132,3686,4465,3628
+Margin of Error, Female,35 to 44 years,In labor force,Civilian,Unemployed,HD02_VD132,462,552,431
+Estimate, Female,45 to 54 years,In labor force,In Armed Forces,,HD01_VD136,11,70,0
+Margin of Error, Female,45 to 54 years,In labor force,In Armed Forces,,HD02_VD136,17,88,92
+Estimate, Female,45 to 54 years,In labor force,Civilian,Employed,HD01_VD138,53977,77333,50889
+Margin of Error, Female,45 to 54 years,In labor force,Civilian,Employed,HD02_VD138,783,824,884
+Estimate, Female,45 to 54 years,In labor force,Civilian,Unemployed,HD01_VD139,4121,4599,3561
+Margin of Error, Female,45 to 54 years,In labor force,Civilian,Unemployed,HD02_VD139,420,436,375
+Estimate, Female,55 to 59 years,In labor force,In Armed Forces,,HD01_VD143,0,0,0
+Margin of Error, Female,55 to 59 years,In labor force,In Armed Forces,,HD02_VD143,92,92,92
+Estimate, Female,55 to 59 years,In labor force,Civilian,Employed,HD01_VD145,20013,29699,20961
+Margin of Error, Female,55 to 59 years,In labor force,Civilian,Employed,HD02_VD145,710,926,680
+Estimate, Female,55 to 59 years,In labor force,Civilian,Unemployed,HD01_VD146,1518,1552,1457
+Margin of Error, Female,55 to 59 years,In labor force,Civilian,Unemployed,HD02_VD146,253,255,243
+Estimate, Female,60 and 61 years,In labor force,In Armed Forces,,HD01_VD150,0,0,0
+Margin of Error, Female,60 and 61 years,In labor force,In Armed Forces,,HD02_VD150,92,92,92
+Estimate, Female,60 and 61 years,In labor force,Civilian,Employed,HD01_VD152,6490,9370,6780
+Margin of Error, Female,60 and 61 years,In labor force,Civilian,Employed,HD02_VD152,395,555,519
+Estimate, Female,60 and 61 years,In labor force,Civilian,Unemployed,HD01_VD153,373,596,398
+Margin of Error, Female,60 and 61 years,In labor force,Civilian,Unemployed,HD02_VD153,116,156,116
+Estimate, Female,62 to 64 years,In labor force,In Armed Forces,,HD01_VD157,0,0,0
+Margin of Error, Female,62 to 64 years,In labor force,In Armed Forces,,HD02_VD157,92,92,92
+Estimate, Female,62 to 64 years,In labor force,Civilian,Employed,HD01_VD159,7856,10278,7380
+Margin of Error, Female,62 to 64 years,In labor force,Civilian,Employed,HD02_VD159,486,575,409
+Estimate, Female,62 to 64 years,In labor force,Civilian,Unemployed,HD01_VD160,469,516,576
+Margin of Error, Female,62 to 64 years,In labor force,Civilian,Unemployed,HD02_VD160,143,139,127
+Estimate, Female,65 to 69 years,In labor force,Civilian,Employed,HD01_VD165,6412,7749,6085
+Margin of Error, Female,65 to 69 years,In labor force,Civilian,Employed,HD02_VD165,412,479,452
+Estimate, Female,65 to 69 years,In labor force,Civilian,Unemployed,HD01_VD166,727,549,437
+Margin of Error, Female,65 to 69 years,In labor force,Civilian,Unemployed,HD02_VD166,147,163,123
+Estimate, Female,70 to 74 years,In labor force,Civilian,Employed,HD01_VD171,2594,2601,2271
+Margin of Error, Female,70 to 74 years,In labor force,Civilian,Employed,HD02_VD171,299,327,304
+Estimate, Female,70 to 74 years,In labor force,Civilian,Unemployed,HD01_VD172,261,242,111
+Margin of Error, Female,70 to 74 years,In labor force,Civilian,Unemployed,HD02_VD172,107,89,61
+Estimate, Female,75 years and over,In labor force,Civilian,Employed,HD01_VD177,1996,2015,1720
+Margin of Error, Female,75 years and over,In labor force,Civilian,Employed,HD02_VD177,251,235,262
+Estimate, Female,75 years and over,In labor force,Civilian,Unemployed,HD01_VD178,144,65,132
+Margin of Error, Female,75 years and over,In labor force,Civilian,Unemployed,HD02_VD178,62,44,75

@@ -16,7 +16,15 @@ This section covers indicators related to unemployment and the labor force in th
 
 ## Data and limitations
 
-Data on unemployment comes from DoL and ACS. 
+Data on unemployment comes from two sources: 
+* The Bureau of Labor Statistics (BLS), which is then provided locally by the Connecticut Department of Labor (DoL). 
+* The U.S. Census Bureau, primarily through the American Community Survey (ACS).
+
+Loosely, the data from the BLS is more frequent - with monthly updates - and available by town, but it lacks much of the demographic information at the local level. 
+
+The ACS data is less frequent - at best, annual, and on a 3 - 5 year cycle for small geographies - but it contains more information on demographics (age, gender, race / ethnicity) and on labor force participation. 
+
+Data from both sources is reviewed below for the Hartford region. 
 
 ## What do we already know?
 
@@ -24,25 +32,91 @@ Unemployment rates are the single most commonly-used indicator in the reports we
 
 ### Local
 
-* [Health Equity Index](http://www.cadh.org/health-equity/health-equity-index.html) 
-* [MetroHartford Alliance's Regional Economic Scorecard](http://www.metrohartford.com/economic-development/regional-data) 
-* [Opportunities Hartford](http://www.cahs.org/programs-opportunitieshartford.asp) 
-* [Pioneer Valley State of the People](http://pvpc.org/resources/datastats/state-of-people/stateofthepeople2013.pdf) 
-* [CT Voices for Children](http://www.ctvoices.org/) 
+* [CETC Report Card](http://www.ctdol.state.ct.us/OWC/CETC/2013ReportCard.pdf) included the unemployment rate as a key indicator for the state. 
+* [CT Fair Housing Center Opportunity Mapping](http://www.ctfairhousing.org/people-place-and-opportunity-report/) (developed with the Kirwan Institute at Ohio State) includes local unemployment levels, using Census data. 
+* [CWP Community Workforce Development Report Card](http://www.capitalworkforce.org/ctworks/documents/Community_Workforce_Development_Report_Card_2011ff.pdf) include unemployment rates from the BLS and CT Department of Labor. 
+* [CT Kids Report Card](http://www.cga.ct.gov/kid/rba/results.asp) includes parents with full-time employment as an indicator, using Census data. 
+* [Health Equity Index](http://www.cadh.org/health-equity/health-equity-index.html) includes the neighborhood-level unemployment data (for the civilian labor force) as one factor.
+* [MetroHartford Alliance's Regional Economic Scorecard](http://www.metrohartford.com/economic-development/regional-data) included the unemployment rate from the CT Department of Labor (via BLS).
+* [Opportunities Hartford](http://www.cahs.org/programs-opportunitieshartford.asp) looks at unemployment rates for the labor force (U3 rate), and the labor force plus discouraged workers (U6 rate). 
+* [Pioneer Valley State of the People](http://pvpc.org/resources/datastats/state-of-people/stateofthepeople2013.pdf) includes unemployment rate under 'Economic Security.'
+* [Population Results Working Group](http://www.ct.gov/opm/cwp/view.asp?a=2998&Q=490946) includes rates of long-term unemployment from the CT Department of Labor as well as youth (16 - 24 year old) unemployment rates from the Census. 
+* [Sustainable Knowledge Corridor Dashboard](http://www.sustainableknowledgecorridor.org/site/content/how-are-we-doing) includes the BLS / CT DoL unemployment rates. 
+* [Data Haven's Community Well-Being Index](http://www.ctdatahaven.org/communityindex) includes the unemployment rate as one factor in their index. 
 
 ### Other relevant efforts
 
-* [Boston Indicators Project](http://www.bostonindicators.org/) 
-* [The Child Well-Being Index](http://fcd-us.org/our-work/child-well-being-index-cwi) * [Chicago Department of Public Health](https://data.cityofchicago.org/Health-Human-Services/hardship-index/792q-4jtu) 
-* [The Rhode Island Community Foundation](http://www.rifoundation.org/CommunityLeadership/CommunityDashboard/tabid/1157/Default.aspx) 
+* [Boston Indicators Project](http://www.bostonindicators.org/) includes the neighborhood unemployment rate from the ACS, and also employment levels by sector from state agencies. 
+* [The Child Well-Being Index](http://fcd-us.org/our-work/child-well-being-index-cwi) includes the unemployment rate for parents, from the ACS, as a factor. 
+* [Chicago Department of Public Health](https://data.cityofchicago.org/Health-Human-Services/hardship-index/792q-4jtu) includes the unemployment rate by neighborhood (from the Census) as a hardship factor.
+* [The Rhode Island Community Foundation](http://www.rifoundation.org/CommunityLeadership/CommunityDashboard/tabid/1157/Default.aspx) includes the unemployment rate as background on Rhode Islan. 
 * [The American Human Development Index (HDI)](http://www.measureofamerica.org/human-development/) 
-* [What Matters to Metros](http://www.futurefundneo.org/whatmatters) 
+* [What Matters to Metros](http://www.futurefundneo.org/whatmatters) includes the unemployment rate and the labor force participation rate from the BLS by metro area. 
 
 ## Sample results
 
-The sample results are for all towns in Hartford and Tolland Counties since it is easier to extract ACS data that way. 
+The BLS / CT DoL produce town-level unemployment data by month. Looking at data for the region shows there are a lot of fluctuations by month, but the overall trends are consistent across most towns, and generally track national employment trends. 
 
-Unemployment rates from the ACS (2007 - 2011 5-year estimates)
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+laus <- read.csv("../regionalreport/data/laus.csv")
+laus <- subset(laus, laus$Town %in% levels(towns$Town))
+laus$Town <- factor(laus$Town)
+laus <- cast(laus, Year + Town + Date ~ Type)
+ggplot(data = laus, aes(x = as.Date(Date, "%m/%d/%Y"), y = RT)) + 
+  geom_line(aes(group = Town), alpha = 0.2) +
+  geom_smooth(se = FALSE) + 
+  labs(x = NULL, y = "Unemployment rate by town (%)") +
+  theme_minimal()
+```
+
+Annualized unemployment rates are much smoother, but the trends are the same. 
+
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+#lausann <- aggregate(laus$Value, list(Town = laus$Town, Year = laus$Year, Type = laus$Type), mean)
+#lausann <- cast(lausann, Year + Town ~ Type)
+ggplot(data = lausann, aes(x = Year, y = RT)) + 
+  geom_line(aes(group = Town), alpha = 0.2) +
+  labs(x = NULL, y = "Unemployment rate (%)") +
+  theme_minimal()
+```
+
+Since the trends are similar for most towns in the region, it can help to look where there are differences. Taking the average unemployment rate in the region for the past decade-plus, four towns - Hartford, East Hartford, Bloomfield and East Windsor - have had above-average unemployment rates within the region for the past decade. 
+
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+#Create regional average by year
+regavg <- by(lausann, list(Year = lausann$Year), function(x) weighted.mean(x$RT,x$LF, na.rm = TRUE))
+#Take difference of every year's value for the regional weighted average by town
+lausann$diff <- lausann$RT - regavg[as.character(lausann$Year)]
+#Above avg UE rates in year X
+aa <- subset(lausann, lausann$diff[lausann$Year == 2000] > 0)
+#Below avg UE rates in year Y
+ba <- subset(lausann, lausann$diff[lausann$Year == 2000] <= 0)
+ggplot() + 
+  geom_line(data = aa, aes(x = Year, y = diff, group = Town), colour = "blue") +
+  geom_line(data = ba, aes(x = Year, y = diff, group = Town), alpha = 0.1) +
+  annotate("text", label = "Bloomfield", y = .9, x = 2014) + 
+  annotate("text", label = "Hartford", y = 7.0, x = 2014) + 
+  annotate("text", label = "East Hartford", y = 2.0, x = 2014) + 
+  annotate("text", label = "East Windsor", y = .36, x = 2014) + 
+  xlim(2000,2015) +
+  labs(x = NULL, y = "Difference from average regional unemployment rate (%)") +
+  theme_minimal()
+```
+
+The BLS data also estimates the number of individuals in the labor force, employed and unemployed, to give a sense of how many people are affected in the region. Hartford has the largest labor force, followed by Manchester, West Hartford and East Hartford.  
+
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+lausann$Town <- reorder(lausann$Town, lausann$LF)
+ggplot(data=subset(lausann, Year == 2013),aes(x=Town)) + 
+  geom_bar(aes(y = EMP), fill = "light blue") + 
+  geom_bar(aes(y= UN*(-1)), fill = "blue") + 
+  labs(y = "Unemployed (dark blue) and Employed (light blue) individuals, 2013", x = NULL) +
+  scale_y_continuous(breaks=seq(-40000,40000,5000),labels=abs(seq(-40000,40000,5000))) + 
+  coord_flip() + 
+  theme_minimal()
+```
+
+The second data source for unemployment is the American Community Survey. For individual towns in the region, 5-year estimates are required, currently covering 2007 - 2011. Unemployment rates are mapped below for Hartford and Tolland counties.  
 
 ```{r echo = FALSE,warning = FALSE,message = FALSE, fig.width = 10, comment = NA, tidy = F}
 library(ggplot2)
@@ -87,11 +161,11 @@ ggplot(data = choropleth, aes(long, lat, group = group)) +
   labs(x = NULL, y = NULL) + 
   coord_equal() +
   geom_polygon(data = CTTowns, colour = "grey", alpha = 0.5, fill = NA) +
-  scale_fill_brewer(palette = "Purples", name = "Employment\nstatus") +
+  scale_fill_brewer(palette = "Purples", name = "Unemployment\nrate (%)") +
   theme_minimal()
 ```
 
-Margins of error for the same.
+As with other ACS data, small towns have higher margins of error - meaning we can't actually say whether Bolton has a higher or lower unemployment rate than Windsor Locks using this data set. Hartford, East Hartford and East Windsor all have clearly higher than average rates, although Bloomfield appears better off than with the BLS data.
 
 ```{r echo = FALSE, warning = FALSE, fig.height = 7, message = FALSE}
 employment$town <- reorder(employment$town, employment$employment)
@@ -106,7 +180,7 @@ ggplot(data = employment) +
   theme_minimal()
 ```
 
-Labor force participation rates
+The ACS data also provides estimates of labor force participation for the population. The percent of the population not in the labor force (not actively seeking work or employed) are mapped below. 
 
 ```{r echo = FALSE,warning = FALSE,message = FALSE, fig.width = 10, comment = NA, tidy = F}
 
@@ -124,12 +198,11 @@ ggplot(data = choropleth, aes(long, lat, group = group)) +
   labs(x = NULL, y = NULL) + 
   coord_equal() +
   geom_polygon(data = CTTowns, colour = "grey", alpha = 0.5, fill = NA) +
-  scale_fill_brewer(palette = "Purples", name = "Labor force\nparticipation") +
+  scale_fill_brewer(palette = "Purples", name = "Not in\nlabor force (%)") +
   theme_minimal()
 ```
 
-Margins of error for labor force participation
-Why are Somers, Mansfield and Suffield so high? 
+There are again high margins of error for small towns. In addition, the ACS includes the population living in 'group quarters,' so the estimates for towns like Somers or Mansfield include dormitories and the prison population. For the larger towns in the region, Hartford has the highest percentage (38%) not in the labor force. 
 
 ```{r echo = FALSE, warning = FALSE, fig.height = 7, message = FALSE}
 employment$town <- reorder(employment$town, employment$participation)
@@ -143,7 +216,10 @@ ggplot(data = employment) +
   theme_minimal()
 ```
 
-Unemployment by neighborhood 
+The ACS data can be taken to a neighborhood level using the 2007 - 2011 5-year estimates. Unemployment rates are mapped below for the region. 
+
+High unemployment rates are clustered in the same towns as seen earlier, although some new areas - like in Manchester - appear that are masked with the town level data. 
+
 
 ```{r echo = FALSE,warning = FALSE,message = FALSE,fig.width = 10, comment = NA, tidy = F}
 #hartford.tracts = geo.make(state = "CT", county = c("Hartford","Tolland"), tract = "*", check = T)
@@ -183,7 +259,7 @@ ggplot(data = choropleth, aes(long, lat, group = group)) +
   theme_minimal()
 ```
 
-Labor force participation by neighborhood
+Labor force participation can also be mapped by neighborhood, which helps to isolate small pockets with low participation (as in Mansfield and Somers). 
 
 ```{r echo = FALSE,warning = FALSE,message = FALSE,fig.width = 10, comment = NA, tidy = F}
 #hartford.tracts = geo.make(state = "CT", county = c("Hartford","Tolland"), tract = "*", check = T)
@@ -205,7 +281,43 @@ ggplot(data = choropleth, aes(long, lat, group = group)) +
   theme_minimal()
 ```
 
-Then get DoL data
+The ACS provides many additional demographic breakouts. For example, data by age demonstrates that unemployment rates are highest for young males within the region, similar to other parts of Connecticut.
 
-Look at table S2301 for data on labor force participation - old and young
+The chart below looks at Connecticut's main metro areas, with 5-year census estimates  for [civilians in the labor force](http://factfinder2.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_11_5YR_B23001&prodType=table).
+
+```{r echo = FALSE, warning = FALSE, message = FALSE, fig.width = 10, fig.height = 9}
+library(reshape)
+B23001 <- read.csv('B23001.csv')
+B23001 <- melt(B23001)
+
+B23001_sum <- ddply(subset(B23001, Stat == "Estimate" & Military != "In Armed Forces"), 
+                      .(Gender, Age, Employment.status, variable),
+                      summarise, value = sum(value))
+B23001_sum$Age <- factor(B23001_sum$Age, levels = c("75 years and over",
+                                                    "70 to 74 years",
+                                                    "65 to 69 years",
+                                                    "62 to 64 years",
+                                                  "60 and 61 years",
+                                                  "55 to 59 years",
+                                                    "45 to 54 years",
+                                                  "35 to 44 years",
+                                                  "30 to 34 years",
+                                                  "25 to 29 years",
+                                                  "22 to 24 years",
+                                                  "20 and 21 years",
+                                                  "16 to 19 years"))
+library(ggplot2)
+library(scales)
+ggplot(data = B23001_sum, 
+       aes(x = Age, y = value, group= Employment.status, 
+           fill= Employment.status)) + 
+  geom_area(position = 'fill') + 
+  facet_wrap(~ variable + Gender, ncol = 2) +
+  scale_y_continuous(labels = percent) +
+  labs(x = 'Age', y = '% of the population') +
+  scale_fill_brewer() +
+  coord_flip() + 
+  theme_minimal()
+```
+
 
