@@ -20,9 +20,9 @@ Data on unemployment comes from two sources:
 * The Bureau of Labor Statistics (BLS), which is then provided locally by the Connecticut Department of Labor (DoL). 
 * The U.S. Census Bureau, primarily through the American Community Survey (ACS).
 
-Loosely, the data from the BLS is more frequent - with monthly updates - and available by town, but it lacks much of the demographic information at the local level. 
+The data from the BLS is more frequent - with monthly updates - and available by town, but it lacks much of the demographic information at the local level. 
 
-The ACS data is less frequent - at best, annual, and on a 3 - 5 year cycle for small geographies - but it contains more information on demographics (age, gender, race / ethnicity) and on labor force participation. 
+The ACS data is less frequent - on a 3 - 5 year cycle for most towns in the region - but it contains more information on demographics (age, gender, race / ethnicity) and on labor force participation. 
 
 Data from both sources is reviewed below for the Hartford region. 
 
@@ -55,22 +55,26 @@ Unemployment rates are the single most commonly-used indicator in the reports we
 
 ## Sample results
 
-The BLS / CT DoL produce town-level unemployment data by month. Looking at data for the region shows there are a lot of fluctuations by month, but the overall trends are consistent across most towns, and generally track national employment trends. 
+The BLS / CT DoL produce town-level unemployment data by month. Trends for the region shows a lot of fluctuation by month, but consistency overall in the general trend across towns, which also track national employment trends. 
 
 ![plot of chunk unnamed-chunk-1](assets/fig/unnamed-chunk-1.png) 
 
 
-Annualized unemployment rates are much smoother, but the trends are the same. 
+Annualized unemployment rates are much smoother, but with the same general trend. 
 
 ![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2.png) 
 
 
-Since the trends are similar for most towns in the region, it can help to look where there are differences. Taking the average unemployment rate in the region for the past decade-plus, four towns - Hartford, East Hartford, Bloomfield and East Windsor - have had above-average unemployment rates within the region for the past decade. 
+Since trends are similar for most towns in the region, it can help to look for gaps between towns. 
+
+The graph below compares each town to the average unemployment rate in the region since 200. Four towns - Hartford, East Hartford, Bloomfield and East Windsor - have had above-average unemployment rates within the region for the past decade. 
 
 ![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3.png) 
 
 
-The BLS data also estimates the number of individuals in the labor force, employed and unemployed, to give a sense of how many people are affected in the region. Hartford has the largest labor force, followed by Manchester, West Hartford and East Hartford.  
+The BLS data also estimates the number of individuals in the labor force, employed and unemployed, to give a sense of how many people are affected in the region. 
+
+Hartford has the largest labor force, followed by Manchester, West Hartford and East Hartford.  
 
 ![plot of chunk unnamed-chunk-4](assets/fig/unnamed-chunk-4.png) 
 
@@ -85,20 +89,23 @@ As with other ACS data, small towns have higher margins of error - meaning we ca
 ![plot of chunk unnamed-chunk-6](assets/fig/unnamed-chunk-6.png) 
 
 
-The ACS data also provides estimates of labor force participation for the population. The percent of the population not in the labor force (not actively seeking work or employed) are mapped below. 
+The ACS data also provides estimates of labor force participation for the population. Anyone not actively seeking work (or discouraged workers) is excluded from the labor force. 
+
+The percent of the population not in the labor force (not actively seeking work or employed) is mapped below. 
 
 ![plot of chunk unnamed-chunk-7](assets/fig/unnamed-chunk-7.png) 
 
 
-There are again high margins of error for small towns. In addition, the ACS includes the population living in 'group quarters,' so the estimates for towns like Somers or Mansfield include dormitories and the prison population. For the larger towns in the region, Hartford has the highest percentage (38%) not in the labor force. 
+There are again high margins of error for small towns. In addition, the ACS includes the population living in 'group quarters,' so estimates for towns like Somers or Mansfield include dormitories and the prison population. 
+
+For the larger towns in the region, Hartford has the highest percentage (38%) not in the labor force. 
 
 ![plot of chunk unnamed-chunk-8](assets/fig/unnamed-chunk-8.png) 
 
 
-The ACS data can be taken to a neighborhood level using the 2007 - 2011 5-year estimates. Unemployment rates are mapped below for the region. 
+The ACS data can be taken to a neighborhood level using the 2007 - 2011 5-year estimates. Unemployment rates are mapped below for the region by census tract. 
 
 High unemployment rates are clustered in the same towns as seen earlier, although some new areas - like in Manchester - appear that are masked with the town level data. 
-
 
 ![plot of chunk unnamed-chunk-9](assets/fig/unnamed-chunk-9.png) 
 
@@ -108,9 +115,9 @@ Labor force participation can also be mapped by neighborhood, which helps to iso
 ![plot of chunk unnamed-chunk-10](assets/fig/unnamed-chunk-10.png) 
 
 
-The ACS provides many additional demographic breakouts. For example, data by age demonstrates that unemployment rates are highest for young males within the region, similar to other parts of Connecticut.
+The ACS provides many additional demographic breakouts. The chart below looks at Connecticut's three largest metro areas, with 5-year census estimates  for [civilians in the labor force](http://factfinder2.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_11_5YR_B23001&prodType=table).
 
-The chart below looks at Connecticut's main metro areas, with 5-year census estimates  for [civilians in the labor force](http://factfinder2.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_11_5YR_B23001&prodType=table).
+Unemployment rates are highest for young males within the region, similar to other parts of Connecticut.
 
 ![plot of chunk unnamed-chunk-11](assets/fig/unnamed-chunk-11.png) 
 
